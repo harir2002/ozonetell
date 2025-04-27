@@ -43,15 +43,21 @@ OZONETELL_MAIN/
 
 
 Setup Instructions
+
 Local Development
+
 Clone the Repository:
+
 git clone <repository-url>
 cd OZONETELL_MAIN
+
 Create a Virtual Environment (optional):
 python -m venv venv
 source venv/bin/activate (Linux/Mac) or venv\Scripts\activate (Windows)
+
 Install Dependencies:
 pip install -r requirements.txt
+
 Configure Environment Variables:
 Create a .env file in the root directory with the following keys:
 FLASK_SECRET_KEY=your-secure-random-key
@@ -66,16 +72,21 @@ WATSONX_PROJECT_ID=your-project-id
 WATSONX_MODEL_ID=your-model-id
 WATSONX_AUTH_URL=your-auth-url
 Ensure .env is listed in .gitignore.
+
 Run the Application:
 python app.py
 Access the app at http://localhost:8000
 Deployment to IBM Code Engine
+
 Build and Push Docker Image:
 docker build -t icr.io/your-namespace/flask-app:latest .
 docker push icr.io/your-namespace/flask-app:latest
+
 Create ConfigMap for Environment Variables:
 ibmcloud ce configmap create --name flask-config --from-env-file .env
+
 Deploy the Application:
+
 ibmcloud ce app create --name flask-app --image icr.io/your-namespace/flask-app:latest --port 8000 --env-from-configmap flask-config --min-scale 1 --max-scale 10
 Note the public URL provided in the output.
 Usage
@@ -83,7 +94,9 @@ Visit the deployed URL or http://localhost:8000.
 Select a JSON file from the COS bucket via the web form.
 Submit to process the audio, generating a transcript, speaker separation, call quality assessment, and insights.
 Download the resulting JSON file using the provided link.
+
 Functions Overview
+
 get_cos_files(): Retrieves and validates JSON files from COS.
 process_audio_with_assisto(): Transcribes audio using the Assisto API.
 Separatespeakers(): Separates speakers in the transcript with Watsonx.
@@ -93,7 +106,9 @@ create_json_output(): Generates a sanitized JSON output file.
 index(): Renders the main web interface and handles form submissions.
 api_process(): Processes JSON via API endpoint.
 download_json(): Serves the JSON output for download.
+
 Testing
+
 Run python test_audio_processing.py to execute unit tests for audio processing, API calls, and JSON generation.
 Add new tests to cover edge cases (e.g., invalid COS files, API failures).
 Security Notes
