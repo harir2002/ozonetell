@@ -22,14 +22,23 @@ Project Structure
 OZONETELL_MAIN/
 
 ├── temp/              # Temporary files (e.g., audio, JSON)
+
 ├── templates/         # HTML templates (e.g., index.html)
+
 ├── venv/              # Virtual environment (optional for local setup)
+
 ├── .dockerignore      # Files to exclude from Docker build
+
 ├── .env               # Environment variables (not committed)
+
 ├── .gitignore         # Excludes sensitive files from version control
+
 ├── app.log            # Application log file
+
 ├── Dockerfile         # Docker configuration for deployment
+
 ├── gunicorn_config.py # Gunicorn server configuration
+
 ├── requirements.txt   # Python dependencies
 
 
