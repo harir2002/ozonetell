@@ -18,7 +18,9 @@ IBM Cloud account with COS and API keys for Watsonx and Assisto.
 ibmcloud CLI for Code Engine deployment.
 
 Project Structure
+
 OZONETELL_MAIN/
+
 ├── temp/              # Temporary files (e.g., audio, JSON)
 ├── templates/         # HTML templates (e.g., index.html)
 ├── venv/              # Virtual environment (optional for local setup)
