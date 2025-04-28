@@ -41,6 +41,8 @@ OZONETELL_MAIN/
 
 ├── requirements.txt   # Python dependencies
 
+├── test.py            #main python file
+
 
 Setup Instructions
 
